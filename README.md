@@ -58,3 +58,66 @@ Data augmentation artificially increases the diversity of training images using 
 Focal Loss focuses training on difficult misclassified samples and helps handle class imbalance.
 
 Focal loss formula:
+FL(pt) = -α (1 - pt)^γ log(pt)
+
+Where:
+- pt = predicted probability
+- α = balancing factor
+- γ = focusing parameter
+
+---
+
+# Model Architecture
+
+A **pretrained CNN from torchvision** is used through **transfer learning**.
+
+The final fully connected layer is modified to classify images into **three categories**:
+
+- Benign
+- Malignant
+- Normal
+
+---
+
+# Evaluation Metrics
+
+Model performance is evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+
+---
+
+# Results
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|------|------|------|------|------|
+| Baseline | 0.7778 | 0.7705 | 0.7361 | 0.7501 |
+| Oversampling | 0.7778 | 0.7997 | 0.7247 | 0.7538 |
+| Augmentation | **0.8034** | 0.7896 | 0.7799 | **0.7838** |
+| Focal Loss | 0.7436 | 0.7143 | 0.7156 | 0.7129 |
+
+**Observation:**  
+Data augmentation achieved the best overall performance.
+
+---
+
+# Technologies Used
+
+- Python
+- PyTorch
+- NumPy
+- Pandas
+- Matplotlib
+- Scikit-learn
+
+---
+
+# How to Run the Project
+
+1 Clone the repository
+
+```bash
+git clone https://github.com/yourusername/breast-ultrasound-classification-cnn.git
